@@ -33,7 +33,7 @@ class Products_Model extends Model{
     //This takes in a category ID and returns products by category
     public function getProductsByCategory($categoryID){
         $products = Database::select("SELECT p.name, p.sku, p.price, p.category_id, p.currency FROM `products` AS p 
-        LEFT JOIN category AS c ON p.category_id = c.id WHERE p.category_id = :catID ", array("catID"=> $categoryID));
+        LEFT JOIN category AS c ON p.category_id = c.id WHERE p.category_id = :catID LIMIT 5 ", array("catID"=> $categoryID));
         return $products;
     }
     
@@ -41,7 +41,7 @@ class Products_Model extends Model{
     public function getProductByPrice($categoryID, $priceLessThan){
        // echo $priceLessThan;die;
         $products = Database::select("SELECT p.name, p.sku, p.price, p.category_id, c.name as category, p.currency FROM `products` AS p 
-        LEFT JOIN category AS c ON p.category_id = c.id WHERE p.category_id = :catID AND p.price <= :priceLessThan", 
+        LEFT JOIN category AS c ON p.category_id = c.id WHERE p.category_id = :catID AND p.price <= :priceLessThan LIMIT 5 ", 
         array("catID"=> $categoryID, "priceLessThan"=> $priceLessThan));
         return $products;
     }
