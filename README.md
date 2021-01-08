@@ -31,8 +31,8 @@ Copy paste the app into the root folder of a php webserver.
 Set up the database configuration and path from psystem/config
 
 just go to 
-http://localhost/products?cat_id=1
-http://localhost/products?cat_id=2&priceLessThan=3000
+GET http://localhost/products?cat_id=1
+http://localhost/products?cat_id=3&priceLessThan=85,000
 
 FUTURE EXTENSIONS
 
